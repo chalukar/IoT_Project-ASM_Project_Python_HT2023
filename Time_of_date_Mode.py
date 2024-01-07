@@ -5,15 +5,12 @@ import paho.mqtt.client as mqtt
 import paho.mqtt.publish as publish
 import subprocess
 
-
-# Using decimal to round the value for lux :)
 from decimal import Decimal
 
 # Imports for sensor
 import board
 import busio
 
-# Uncomment the correct sensor 
 import adafruit_tsl2591 # High range lux sensor
 
 # Initialize I2C bus and sensor.
@@ -55,9 +52,7 @@ def on_log(client, userdata, level, buf):		# Message is in buf
     print("MQTT Log: " + str(buf))
 
 ############### Sensor section ##################	
-    ### Developed by Chaluka Rathnayaka ####
 def is_time_in_range(start_time, end_time, current_time_str):
-    # current_time_str = "15:30"
     current_time = datetime.datetime.strptime(current_time_str, "%H:%M").time()
     start_datetime = datetime.datetime.combine(datetime.datetime.today(), start_time)
     end_datetime = datetime.datetime.combine(datetime.datetime.today(), end_time)

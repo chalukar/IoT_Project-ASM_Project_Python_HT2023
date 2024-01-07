@@ -88,7 +88,6 @@ def run_schedule():
     schedule.every(3).minutes.do(get_random_int).tag('lights_job')
     return get_random_int()
 
-
 # Start the schedule
 run_schedule()
 
